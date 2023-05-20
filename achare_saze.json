@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "8617e934-d143-4a39-bda9-edd9c28beb71",
+		"name": "AchareSaze",
+		"description": "This test project is for Achare Saze Company.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16186124",
+		"_collection_link": "https://speeding-crescent-491061.postman.co/workspace/Achareh~e0f7e73a-0013-4c80-a1b1-14cdab558aa7/collection/16186124-8617e934-d143-4a39-bda9-edd9c28beb71?source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Phone Number - First Step",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone_number\": \"9190503473\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/accounts/phone_number/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"accounts",
+						"phone_number",
+						""
+					]
+				},
+				"description": "First Step: This Api get The phone number and checks if it exists or not"
+			},
+			"response": []
+		},
+		{
+			"name": "OTP Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone_number\": \"9190503473\",\r\n    \"otp_number\": 595977\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/accounts/otp/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"accounts",
+						"otp",
+						""
+					]
+				},
+				"description": "This Api validate Phone Number and OTP number."
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "OTP-TOKEN",
+						"value": "{{otpToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"mohammad\",\r\n    \"last_name\": \"hosseini\",\r\n    \"email\": \"mfdgdfgo@mo.com\",\r\n    \"password1\": \"13641378mH\",\r\n    \"password2\": \"13641378mH\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/accounts/register/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"accounts",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JWT Token Pair",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone_number\": \"9190503469\",\r\n    \"password\": \"13641378mH\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/accounts/token_pair/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"accounts",
+						"token_pair",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Information",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgzODQ0NDk2LCJpYXQiOjE2ODM4NDM4OTYsImp0aSI6IjMxZGJmMGVmYThkOTQ5NDJhNGMyMTFjZjdmYzhiZTAxIiwidXNlcl9pZCI6Mn0.TvLUQqF9pHZWhTPwx_hlSfZ039SMh7djn4C8SFJ6Nuw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/accounts/me/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"accounts",
+						"me",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoidmVyaWZ5IiwiZXhwIjoxNjg0NjMwMTU4LCJpYXQiOjE2ODQ1NDM3NTgsImp0aSI6ImM2MGY2Mzc2ZGZjODRkZTc5NGVlZWM2NDE4ZTFiYTk1IiwiaWRlbnRpdHkiOiJ7XCJwaG9uZV9udW1iZXJcIjogXCIrOTg5MTkwNTAzNDczXCJ9In0.v6789iba9PpD8MInXS63UuKEm79GksmCsbOp_fJVmgQ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/accounts/verify/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"accounts",
+						"verify",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting Access Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/accounts/access/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"accounts",
+						"access",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "127.0.0.1:8000/api",
+			"type": "string"
+		},
+		{
+			"key": "otpToken",
+			"value": "------",
+			"type": "string"
+		}
+	]
+}

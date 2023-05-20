@@ -1,0 +1,13 @@
+django==3.2.18
+
+# for making apis
+djangorestframework
+
+# for authentication
+djangorestframework-simplejwt
+
+# for handling phone number fields
+django-phonenumber-field[phonenumbers]
+
+# for caching
+redis
