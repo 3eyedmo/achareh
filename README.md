@@ -14,6 +14,7 @@ in app settings.py
 
 ### App Installation :
 ```bash
+pip install -r requirements.txt
 cd achare
 python manage.py makemigrations
 python manage.py migrate
